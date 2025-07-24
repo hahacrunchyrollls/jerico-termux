@@ -50,11 +50,11 @@ main_installation() {
     apt install -y nano
 
     local ARCH="$(get_arch)"
-    local URL_BASE="https://github.com/hahacrunchyrollls/marjustin-termux/raw/refs/heads/main"
-    local SCRIPT_NAME="termux-script"
+    local URL_BASE="https://github.com/hahacrunchyrollls/jerico-termux/raw/refs/heads/main"
+    local SCRIPT_NAME="jerico-termux"
     wget "$URL_BASE/$SCRIPT_NAME"
     chmod +x "$SCRIPT_NAME"
-    mv "$SCRIPT_NAME" /data/data/com.termux/files/usr/bin/tamj
+    mv "$SCRIPT_NAME" /data/data/com.termux/files/usr/bin/jer
 
     echo
     echo -e "${WHITE}   INSTALLATION COMPLETE   ${NC}"
@@ -78,4 +78,4 @@ trap 'handle_error' ERR
 
 main_installation
 
-echo -e "${GREEN}Ready! Type 'tamj' to start${NC}"
+echo -e "${GREEN}Ready! Type 'jer' to start${NC}"
