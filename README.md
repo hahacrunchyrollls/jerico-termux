@@ -14,5 +14,5 @@ curl -L https://raw.githubusercontent.com/hahacrunchyrollls/marjustin-termux/ref
 
 ## TO OPEN MAIN MENU:
 ```
-jerico
+jer
 ```
