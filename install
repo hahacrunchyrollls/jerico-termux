@@ -10,8 +10,6 @@ CYAN='\033[0;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
-VER="4.2"
-
 # Detect architecture
 get_arch() {
     case "$(uname -m)" in
@@ -44,17 +42,18 @@ clear_screen() {
 main_installation() {
 
     rm -rf install
-    apt update -y
-    apt install -y dnsutils
-    apt install -y wget
-    apt install -y nano
+    apt install -y curl git nano wget dnsutils
+
+    # Ensure storage permissions
+    termux-setup-storage
 
     local ARCH="$(get_arch)"
     local URL_BASE="https://github.com/hahacrunchyrollls/jerico-termux/raw/refs/heads/main"
     local SCRIPT_NAME="jerico-termux"
     wget "$URL_BASE/$SCRIPT_NAME"
     chmod +x "$SCRIPT_NAME"
-    mv "$SCRIPT_NAME" /data/data/com.termux/files/usr/bin/jer
+    mkdir -p "$HOME/bin"
+    mv "$SCRIPT_NAME" "$HOME/bin/jer"
 
     echo
     echo -e "${WHITE}   INSTALLATION COMPLETE   ${NC}"
