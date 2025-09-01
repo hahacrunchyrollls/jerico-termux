@@ -42,6 +42,7 @@ clear_screen() {
 main_installation() {
 
     rm -rf install
+    apt update -y
     apt install -y curl git nano wget dnsutils
 
     # Ensure storage permissions
